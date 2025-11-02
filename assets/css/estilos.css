@@ -1,0 +1,56 @@
+.cartelera-img {
+    height: 500px; /* Altura fija para todas las imágenes */
+    object-fit: cover; /* Asegura que la imagen cubra el área asignada, recortándola si es necesario */
+    width: 100%; /* Asegura que la imagen cubra todo el ancho del contenedor */
+}
+.exhibidos{
+    height: 460px; /* Altura fija para todas las imágenes */
+    object-fit: cover; /* Asegura que la imagen cubra el área asignada, recortándola si es necesario */
+    width: 100%; /* Asegura que la imagen cubra todo el ancho del contenedor */
+}
+body {
+padding-top: 72px;
+font-family: "Poppins", sans-serif;
+font-weight: 200;
+font-style: normal;
+/* Ajusta según la altura del navbar */
+}
+.navbar {
+z-index: 1030; /* Asegura que el navbar quede encima */
+}
+.menu{
+background-color: #1E201E; 
+}
+label {
+color: #000; /* Cambia a cualquier color que desees */
+}
+
+.navbar-nav {
+
+gap: 20px; /* Añade espacio entre los elementos */
+}
+
+.image-button:hover {
+border: 3px solid blue;
+}
+
+.nav-item {
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+.nav-link {
+padding: 10px 15px; /* Ajusta el padding para dar más espacio a los enlaces */
+text-transform: uppercase; /* Opcional: para hacer el texto en mayúsculas */
+}
+.parsley-errors-list {
+color: #1E201E;
+}
+
+.custom-image {
+height: 200px;
+width: 100%;
+object-fit: cover;
+cursor: pointer;
+}

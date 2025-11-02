@@ -1,0 +1,790 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+  
+<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
+<link href="https://cdn.datatables.net/2.1.8/css/dataTables.bootstrap5.css">
+
+
+<link rel="stylesheet"  href="assets/css/estilos.css" >
+
+
+
+
+
+ 
+</head>
+
+
+
+
+<body class="bg-light text-dark transition bg-dark text-white">
+
+    <nav class="container menu navbar fixed-top navbar-expand-lg p-1 mb-4">
+        <div class="container-fluid">
+            <a class="navbar-brand fw-bold fs-4 text-white" href="index.html">ARAIC <span class="text-sm"></span></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse mx-auto" id="navbarNav">
+                <ul class="navbar-nav mx-auto d-flex justify-content-center text-center">
+                  
+
+                 
+                </ul>
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <form id="searchForm" class="d-flex">
+                            <input id="searchInput" class="form-control me-2" type="search" placeholder="Buscar Película" aria-label="Buscar" style="width: 250px;">
+                            <button class="btn btn-outline-light" type="submit">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="bi bi-search" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                    <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001l3.85 3.85a1 1 0 0 0 1.415-1.415l-3.85-3.85zm-5.441 0A5.5 5.5 5.5 0 1 1 10.5 5a5.5 5.5 5.5 0 0 1-4.199 5.344z"/>
+                                </svg>
+                            </button>
+                        </form>
+                    </li>
+
+                    <li class="nav-item">
+                      <h6>Usuario: Carlos</h6>
+                    </li>
+                  
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+
+
+    <!---FORMULARIO REGISTRAR-->
+
+
+
+    <div class="modal fade" id="modal_registro" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered ">
+          <div class="modal-content">
+              <div class="modal-header bg-light">
+                  <h5 class="modal-title" style="color: #000;">Registrate</h5>
+                  <button type="button" class="btn-close" aria-label="Close" data-bs-dismiss="modal"></button>
+              </div>
+              <div class="modal-body">
+                  <form id="registroForm" data-parsley-validate enctype="multipart/form-data">
+      
+                    <div class="row">
+                        <div class="col-3">
+                          <img id="vistaPrevia" class="rounded-circle" src="assets/img/defecto.png" alt="" height="100" width="100"/>
+                        </div>
+                        <div class="col-9 d-flex align-items-center">
+
+                          <h4 style="color: #000;">Diligencia el Formulario</h4>
+                        
+
+                        </div>
+                    </div>
+                    
+                   
+                  
+                      <!-- Tipo de Documento -->
+                      <div class="row mb-3 mt-4">
+                          <div class="col-3">
+                              <label for="tipoDoc" class="col-form-label">Documento:</label>
+                          </div>
+    
+                          <div class="col-5">
+                            <select class="form-select" id="tipoDoc" name="tipoDoc" required>
+                                <option value="" disabled selected>Seleccione</option>
+                                <option value="CC">Cédula de Ciudadanía</option>
+                                <option value="TI">Tarjeta de Identidad</option>
+                                <option value="EX">Cédula de Extranjería</option>
+                                <option value="PAS">Pasaporte</option>
+                            </select>
+                            </div>
+    
+                          <div class="col-4">
+                              <input type="number" class="form-control" id="numeroId" placeholder="N°" name="numeroId" required 
+                                  data-parsley-type="number" 
+                                  data-parsley-error-message="Debe ser un número de identificación válido" 
+                                    data-parsley-errors-container="#error-numeroId"
+                                  data-parsley-trigger="keyup">
+                          </div>
+                    
+                      </div>
+      
+                      <!-- Nombres -->
+                      <div class="row mb-3">
+    
+                          <div class="col-3">
+                              <label for="nombres" class="col-form-label">Nombres:</label>
+                          </div>
+    
+                          <div class="col-5">
+                              <input type="text" class="form-control" id="nombres" name="nombres" required 
+                                 data-parsley-pattern="^[a-zA-Z\s]+$"
+                                  data-parsley-error-message="Solo se permiten letras" 
+                                  data-parsley-trigger="keyup"
+                                 > <!-- Para cuando escriben -->
+                          </div>
+    
+                          <div class="col-4">
+                            <input type="text" class="form-control" id="nombres1" name="nombres" required 
+                               data-parsley-pattern="^[a-zA-Z\s]+$"
+                                data-parsley-error-message="Solo se permiten letras" 
+                                data-parsley-trigger="keyup"
+                               >
+                        </div>
+                      </div>
+      
+                      <!-- Apellidos -->
+                     
+      
+                      <!-- Correo Electrónico -->
+                      <div class="row mb-3">
+                        <div class="col-3">
+                            <label for="correo" class="col-form-label">Correo:</label>
+                        </div>
+                        <div class="col-9">
+                          
+                          <div class="input-group">
+                              <span class="input-group-text">
+                                <i class="fa-regular fa-envelope"></i>
+                              </span>
+                              <input type="email" class="form-control" id="correo" name="correo" required 
+                                     data-parsley-type="email" 
+                                     data-parsley-error-message="Debe ser un correo válido" 
+                                     data-parsley-trigger="keyup" 
+                                   
+                                     placeholder="Correo electrónico" >
+                            </div>
+    
+                               
+                        </div>
+                    </div>
+    
+                    <div class="row mb-3">
+                        <div class="col-3">
+                            <label for="correo" class="col-form-label">Usuario:</label>
+                        </div>
+                        <div class="col-9">
+                            <div class="input-group">
+                                <span class="input-group-text">
+                                   untildeium.com/
+                                </span>
+                                <input type="text" class="form-control" id="usuario" name="usuario" required 
+                                    data-parsley-pattern="^[a-zA-Z0-9_-]{3,16}$" 
+                                    data-parsley-error-message="Debe ser un usuario válido (entre 3 y 16 caracteres, solo se permiten letras, números, guiones bajos y guiones)" 
+                                    data-parsley-trigger="keyup">
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="row mb-3">
+                        <div class="col-3">
+                            <label for="clave" class="col-form-label">Contraseña:</label>
+                            
+                     
+                    </div>
+
+                
+                        <div class="col-9">
+                            <input type="password" class="form-control" id="clave" name="clave" required 
+                            data-parsley-minlength="8" 
+                            data-parsley-error-message="La clave debe tener al menos 8 caracteres" 
+                            data-parsley-trigger="keyup" 
+                                >
+                      
+                    </div>
+                </div>
+
+
+
+      
+                    <!-- Foto de Perfil -->
+                    <div class="row mb-3">
+                        <div class="col-4">
+                            <label for="fotoPerfil" class="col-form-label">Foto de Perfil:</label>
+                        </div>
+                      
+    
+                        <div class="col-4 d-flex align-items-center">
+                            <img id="vistaPrevia2" class="rounded-circle me-2" src="assets/img/defecto.png" alt="" height="50" width="50"/>
+                            <input type="file" id="foto" name="foto" class="input-file btn-light" accept="image/*" onchange="mostrarVistaPrevia(event)" style="display: none;">
+                            <button type="button" class="btn btn-light p-1" onclick="document.getElementById('foto').click();">Click para remplazar </button>
+                        </div>
+                    </div>
+                    
+      
+                   
+                      
+      
+                      <!-- Botones -->
+                      <div class="modal-footer d-flex justify-content-between">
+                        <div class="align-self-start">
+    
+                            <button type="button" class="btn btn-light">Cancelar</button>
+                         
+    
+                        </div>
+                        <div class="align-self-end">
+                          
+    
+                          
+                          <button type="submit" class="btn btn-dark">Guardar Cambios</button>
+                          
+                    
+                          
+                          
+                        </div>
+                      </div>
+                
+                  </form>
+              </div>
+          </div>
+        </div>
+        </div>
+
+
+        <!--MODAL LOGIN-->
+
+        <!-- Modal de Iniciar Sesión -->
+<div class="modal fade" id="modal_login" tabindex="-1" aria-labelledby="modal_loginLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered " style="max-width: 400px;">
+      <div class="modal-content">
+        <!-- Encabezado del Modal -->
+        <div class="modal-header">
+          <h5 class="modal-title" id="modal_loginLabel" style="color:  #000;">INICIA SESIÓN</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <!-- Cuerpo del Modal -->
+        <div class="modal-body">
+            <h4 class="text-center" style="color: #000;">Diligencia el Formulario</h4>
+          <form id="loginForm" data-parsley-validate>
+            <label for="password" class="form-label">Correo:</label>
+            <div class="input-group">
+                <!-- Icono dentro del input group -->
+                <span class="input-group-text">
+                  <i class="fa-regular fa-envelope"></i>
+                </span>
+                <!-- Campo de entrada -->
+                <input type="email" class="form-control" id="email" name="email" required 
+                       data-parsley-type="email" 
+                       data-parsley-error-message="Debe ser un correo válido" 
+                       placeholder="Correo electrónico">
+              </div>
+            <div class="mb-3">
+              <label for="password" class="form-label">Contraseña:</label>
+              <div class="input-group">
+                <!-- Icono dentro del input group -->
+                <span class="input-group-text">
+                    <i class="fa-solid fa-lock"></i>
+                </span>
+                <!-- Campo de entrada -->
+                <input type="password" class="form-control" id="password" name="password" required 
+                       data-parsley-minlength="8" 
+                       data-parsley-error-message="La contraseña debe tener al menos 8 caracteres" 
+                       >
+              </div>
+            </div>
+            <div class="mb-3 form-check">
+              <input type="checkbox" class="form-check-input" id="rememberMe">
+              <label class="form-check-label" for="rememberMe">Recordarme</label>
+            </div>
+          </form>
+        </div>
+      
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+          <button type="submit" form="loginForm" class="btn btn-dark">Iniciar sesión</button>
+        </div>
+      </div>
+    </div>
+  </div>
+    
+    
+    
+    
+    
+
+    <!-- Botón de modo oscuro -->
+    <button id="darkModeToggle" class="btn btn-dark position-fixed bottom-0 end-0 m-4 shadow-lg rounded-circle p-3">
+        🌙
+    </button>
+    <!-- Exhibidos -->
+    <div id="main-content">
+        <div class="container mt-4  mx-auto d-flex justify-content-center row g-3 opacity-96">
+        <div id="carouselExample" class="carousel slide mt-4" data-bs-ride="carousel"> 
+            <div class="carousel-inner">
+              <!-- Primer elemento del carrusel -->
+              <div class="carousel-item active">
+                <div class="row">
+                  <div class="col-3">
+                    <div class="card h-100 ">
+                      <img src="assets/img/anora.jpg" class="card-img-top exhibidos h-100" alt="imagen">
+                    
+                    </div>
+                  </div>
+        
+                  <div class="col-3">
+                    <div class="card h-100 shadow">
+                      <img src="assets/img/smile_background.jpg" class="card-img-top exhibidos h-100" alt="imagen">
+                      
+                    </div>
+                  </div>
+        
+                  <div class="col-3">
+                    <div class="card h-100 shadow">
+                      <img src="assets/img/comboy.jpg" class="card-img-top exhibidos h-100" alt="imagen">
+                      
+                    </div>
+                  </div>
+        
+                  <div class="col-3">
+                    <div class="card h-100 shadow">
+                      <img src="assets/img/national.jpg" class="card-img-top exhibidos h-100" alt="imagen">
+                     
+                    </div>
+                  </div>
+                </div>
+              </div>
+          
+              <!-- Segundo elemento del carrusel -->
+              <div class="carousel-item">
+                <div class="row">
+                  <div class="col-3">
+                    <div class="card h-100 shadow">
+                      <img src="assets/img/look.jpg" class="card-img-top exhibidos h-100" alt="imagen">
+                      
+                    </div>
+                  </div>
+        
+                  <div class="col-3">
+                    <div class="card h-100 shadow">
+                      <img src="assets/img/iamhere.jpg" class="card-img-top exhibidos h-100" alt="imagen">
+                      
+                    </div>
+                  </div>
+        
+                  <div class="col-3">
+                    <div class="card h-100 shadow">
+                      <img src="assets/img/heretic.jpg" class="card-img-top exhibidos h-100" alt="imagen">
+                     
+                    </div>
+                  </div>
+        
+                  <div class="col-3">
+                    <div class="card h-100 shadow">
+                      <img src="assets/img/deep.jpeg" class="card-img-top exhibidos h-100" alt="imagen">
+                      
+                    </div>
+                  </div>
+                </div>
+              </div>
+          
+            </div>
+           
+            <button class="carousel-control-prev mx-0" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button class="carousel-control-next mx-0" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+              </button>
+            
+          </div>
+          
+         
+    
+
+   
+    <!-- Banner -->
+     <div class="container">
+    <div class="row g-2 mt-4 mb-3 mx-4">
+        <div class="col-12">
+            <div class="card shadow">
+                <img src="assets/img/banner1.jpg" class="card-img-top" alt="imagen">
+            </div>
+        </div>
+    </div>
+    
+    
+
+   
+     <div class="container-fluid mt-4">
+        <div class="row">
+          
+            <div class="col">
+              <img src="assets/img/whey.jpg" alt="Imagen 1" class="image-button img-fluid custom-image h-100" onclick="alert('Imagen 1 clickeada')">
+            </div>
+            <div class="col">
+              <img src="assets/img/woman.jpg" alt="Imagen 2" class="image-button img-fluid custom-image h-100" onclick="alert('Imagen 2 clickeada')">
+            </div>
+            <div class="col">
+              <img src="assets/img/lower.jpg" alt="Imagen 3" class="image-button img-fluid custom-image h-100" onclick="alert('Imagen 3 clickeada')">
+            </div>
+            <div class="col">
+              <img src="assets/img/six.jpg" alt="Imagen 4" class="image-button img-fluid custom-image h-100" onclick="alert('Imagen 4 clickeada')">
+            </div>
+            <div class="col">
+              <img src="assets/img/flow.jpg" alt="Imagen 5" class="image-button img-fluid custom-image h-100" onclick="alert('Imagen 5 clickeada')">
+            </div>
+            <div class="col">
+              <img src="assets/img/dj.jpg" alt="Imagen 6" class="image-button img-fluid custom-image h-100" onclick="alert('Imagen 6 clickeada')">
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+
+</div>
+
+
+
+
+   
+      
+
+
+
+            
+            <!-- SECTION - CARTELERA -->
+            <section id="cartelera" class="container mt-2">
+                <h2 class="fs-1 mt-4 mb-4 ms-6 fw-bold">Aclamadas</h2>
+                <div class="row row-cols-6 g-2 mt-4">
+                    <!-- Primera fila de la cuadrícula -->
+                    <div class="col-12">
+                        <div class="row">
+                            <!-- Primera película -->
+                            <div class="col-md-3 mb-4" data-titulo="Poison" data-genero="Animación, Aventura, Ciencia Ficción">
+                               <div class="d-flex flex-column h-100 rounded shadow">
+                                    <img src="assets/img/veneno.jpg" class="img-fluid cartelera-img rounded-top" alt="imagen">
+                                    <div class="fs-4 fw-bold text-start mb-2">Poison</div>
+                                    <div class="fs-6 fw-semibold text-start mb-2">Título en español: Veneno</div>
+                                    <div class="fs-6 text-start mb-2">Estreno: 15-10-2024</div>
+                                    <div class="fs-6 text-start mb-6">Género: Animación, Aventura, Ciencia Ficción</div>
+                                    <div class="mt-auto">
+                                    <div class="d-grid gap-2">
+                                        <div class="bg-secondary rounded p-1 text-start text-muted">
+                                            <span class="fw-semibold">Clasificación: </span> PG
+                                        </div>
+                                        <div class="bg-primary rounded p-1 text-start text-light">
+                                            <span class="fw-semibold">Duración: </span> 150m
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            </div>
+                            
+                            <div class="col-md-3 mb-4" data-titulo="Beetlejuice" data-genero="Comedia, Fantasía">
+                               <div class="d-flex flex-column h-100 rounded shadow">
+                                    <img src="assets/img/mario.jpg" class="img-fluid cartelera-img rounded-top" alt="imagen">
+                                    <div class="fs-4 fw-bold text-start mb-2">Mario Puzo’s The Godfather:</div>
+                                    <div class="fs-6 fw-semibold text-start mb-2">Título en español: El padrino de Mario Puzo</div>
+                                    <div class="fs-6 text-start mb-2">Estreno: 18-12-2024</div>
+                                    <div class="fs-6 text-start mb-2">Género: Comedia, Fantasía</div>
+                                    <div class="mt-auto">
+                                    <div class="d-grid gap-2">
+                                    <div class="bg-secondary rounded p-1 text-start text-muted">
+                <span class="fw-semibold">Clasificación: </span> PG
+            </div>
+            <div class="bg-primary rounded p-1 text-start text-light">
+                <span class="fw-semibold">Duración: </span> 150m
+            </div>
+        </div>
+    </div>
+    </div>
+
+    
+
+</div>
+
+            
+                            
+                            
+                            <div class="col-md-3 mb-4" data-titulo="Jeff Buckley - Live in Chicagoe" data-genero="Acción, Ciencia Ficción, Terror">
+
+                            <div class="d-flex flex-column h-100 rounded shadow">
+                                    <img src="assets/img/jeff.jpg" class="img-fluid cartelera-img rounded-top" alt="imagen">
+                                    <div class="fs-4 fw-bold text-start mb-2">Jeff Buckley - Live in Chicagoe</div>
+                                    <div class="fs-6 fw-semibold text-start mb-2">Título en español:Jeff Buckley - En vivo en Chicago</div>
+                                    <div class="fs-6 text-start mb-2">Estreno: 18-11-2024</div>
+                                    <div class="fs-6 text-start mb-2">Género: Acción, Ciencia Ficción, Terror</div>
+                                    <div class="mt-auto">
+                                    <div class="d-grid gap-2">
+                                        <div class="bg-secondary rounded p-1 text-start text-muted">
+                                            <span class="fw-semibold">Clasificación: </span> PG-13
+                                        </div>
+                                        <div class="bg-primary rounded p-1 text-start text-light">
+                                            <span class="fw-semibold">Duración: </span> 120m
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                            
+                            
+                            <!-- Cuarta película -->
+                            
+                                <!-- Primera película -->
+                                <div class="col-md-3 mb-4 " data-titulo="Sunset Boulevard" data-genero="Acción, Suspenso">
+                                    <div class="d-flex flex-column h-100 rounded shadow">
+                                        <img src="assets/img/sunset.jpg" class="img-fluid cartelera-img rounded-top" alt="imagen">
+                                        <div class="fs-4 fw-bold text-start mb-2">GSunset Boulevard</div>
+                                        <div class="fs-6 fw-semibold text-start mb-2">Título en español: Bulevar del atardecer</div>
+                                        <div class="fs-6 text-start mb-2">Estreno: 15-12-2024</div>
+                                        <div class="fs-6 text-start mb-2">Género: Acción, Suspenso</div>
+                                        <div class="mt-auto">
+                                        <div class="d-grid gap-2">
+                                            <div class="bg-secondary rounded p-1 text-start text-muted">
+                                                <span class="fw-semibold">Clasificación: </span> R
+                                            </div>
+                                            <div class="bg-primary rounded p-1 text-start text-light">
+                                                <span class="fw-semibold">Duración: </span> 135m
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                                
+                            
+                                <!-- Tercera película -->
+                                <div class="row">
+                                <div class="col-md-3 mb-4" data-titulo="the Human Condition" data-genero="Terror, Suspenso">
+                                   <div class="d-flex flex-column h-100 rounded shadow">
+                                        <img src="assets/img/human.jpg" class="img-fluid cartelera-img rounded-top" alt="imagen">
+                                        <div class="fs-4 fw-bold text-start mb-2">The Human Condition</div>
+                                        <div class="fs-6 fw-semibold text-start mb-2">Título en español: La condición humana</div>
+                                        <div class="fs-6 text-start mb-2">Estreno: 15-12-2024</div>
+                                        <div class="fs-6 text-start mb-6">Género: Terror, Suspenso</div>
+                                        <div class="mt-auto">
+                                        <div class="d-grid gap-2">
+                                            <div class="bg-secondary rounded p-1 text-start text-muted">
+                                                <span class="fw-semibold">Clasificación: </span> R
+                                            </div>
+                                            <div class="bg-primary rounded p-1 text-start text-light">
+                                                <span class="fw-semibold">Duración: </span> 125m
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                </div>
+                            
+                                <!-- Cuarta película -->
+                                <div class="col-md-3 mb-4" data-titulo="Spider-Man: Into the Spider-Verse" data-genero="Aventura, Fantasía">
+                                   <div class="d-flex flex-column h-100 rounded shadow">
+                                        <img src="assets/img/spiderverse.jpg" class="img-fluid cartelera-img rounded-top" alt="imagen">
+                                        <div class="fs-4 fw-bold text-start mb-2">Spider-Man: Into the Spider-Verse</div>
+                                        <div class="fs-6 fw-semibold text-start mb-2">Título en español: Spider-Man: Un nuevo universo</div>
+                                        <div class="fs-6 text-start mb-2">Estreno: 20-12-2024</div>
+                                        <div class="fs-6 text-start mb-6">Género: Aventura, Fantasía</div>
+                                        <div class="mt-auto">
+                                        <div class="d-grid gap-2">
+                                            <div class="bg-secondary rounded p-1 text-start text-muted">
+                                                <span class="fw-semibold">Clasificación: </span> PG
+                                            </div>
+                                            <div class="bg-primary rounded p-1 text-start text-light">
+                                                <span class="fw-semibold">Duración: </span> 140m
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                </div>
+                            
+                            <!-- Segunda fila de la cuadrícula -->
+                                
+                                    <!-- Primera fila -->
+                                    <div class="col-md-3 mb-4" data-titulo="Kendrick Lamar Live: The Big Steppers Tour" data-genero="Acción, Aventura, Ciencia Ficción">
+                                       <div class="d-flex flex-column h-100 rounded shadow">
+                                            <img src="assets/img/big steppers.jpg" class="img-fluid cartelera-img rounded-top" alt="imagen">
+                                            <div class="fs-4 fw-bold text-start mb-2">Kendrick Lamar Live: The Big Steppers Tour</div>
+                                            <div class="fs-6 fw-semibold text-start mb-2">Kendrick Lamar en vivo: La gira Big Steppers</div>
+                                            <div class="fs-6 text-start mb-2">Estreno: 25-12-2024</div>
+                                            <div class="fs-6 text-start mb-6">Género: Acción, Aventura, Ciencia Ficción</div>
+                                            <div class="d-grid gap-2">
+                                                <div class="bg-secondary rounded p-1 text-start text-muted">
+                                                    <span class="fw-semibold">Clasificación: </span> PG-13
+                                                </div>
+                                                <div class="bg-primary rounded p-1 text-start text-light">
+                                                    <span class="fw-semibold">Duración: </span> 130m
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 mb-4" data-titulo="Mishima: A Life in Four Chapters" data-genero="Biografía, Drama, Música">
+                                       <div class="d-flex flex-column h-100 rounded shadow">
+                                            <img src="assets/img/mishima.jpg" class="img-fluid cartelera-img rounded-top" alt="imagen">
+                                            <div class="fs-4 fw-bold text-start mb-2">Mishima: A Life in Four Chapters</div>
+                                            <div class="fs-6 fw-semibold text-start mb-2">Título en español: Mishima: una vida en cuatro capítulos</div>
+                                            <div class="fs-6 text-start mb-2">Estreno: 15-10-2024</div>
+                                            <div class="fs-6 text-start mb-6">Género: Biografía, Drama, Música</div>
+                                            <div class="mt-auto">
+                                            <div class="d-grid gap-2">
+                                                <div class="bg-secondary rounded p-1 text-start text-muted">
+                                                    <span class="fw-semibold">Clasificación: </span> PG-13
+                                                </div>
+                                                <div class="bg-primary rounded p-1 text-start text-light">
+                                                    <span class="fw-semibold">Duración: </span> 120m
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    </div>
+                                </div>
+                                    
+                                
+                            
+                                
+                                    <!-- Segunda fila -->
+                                    
+                                   
+                                </div>
+                                </div>
+                            
+                            
+                            
+            </section>
+
+
+             
+              
+
+
+        </div>
+        </div>
+           <footer class="text-white py-4 mt-4" style="background-color: #2c3440;">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3 d-flex flex-column align-items-start">
+        <h5>Hecho por :</h5>
+        <ul class="d-flex list-unstyled">
+
+          <li><a href="#" class="text-white fw-bold text-decoration-none">CARLOS ANDRÉS VIVEROS ARBOLEDA</a></li>
+        </ul>
+      </div>
+
+      <div class="col-md-3 ms-auto">
+        <h5>Síguenos</h5>
+        <ul class="d-flex list-unstyled">
+          <li class="me-3"><a href="#" class="text-white"><i class="fab fa-twitter"></i></a></li>
+          <li class="me-3"><a href="#" class="text-white"><i class="fab fa-facebook"></i></a></li>
+          <li class="me-3"><a href="#" class="text-white"><i class="fab fa-instagram"></i></a></li>
+          <li class="me-3"><a href="#" class="text-white"><i class="fab fa-tiktok"></i></a></li>
+          <li><a href="#" class="text-white"><i class="fab fa-youtube"></i></a></li>
+        </ul>
+      </div>
+      
+      <div class="col-md-12 text-center mt-4">
+        <p>&copy; PIQ-10 G7 MAGNOLIA.</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+            
+               
+              
+                <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+                <script src="assets/js/menu.js"></script>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/parsley.js/2.9.2/parsley.min.js"></script>
+                 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+                <script src="https://cdn.datatables.net/2.1.8/js/dataTables.js"></script>
+                <script src="https://cdn.datatables.net/2.1.8/js/dataTables.bootstrap5.js"></script>
+                <script>
+                        $(document).ready(function() {
+                            $('#example').DataTable();
+                        });
+                    </script>
+               
+                <script>
+                // Referencia al botón y al body
+                const darkModeToggle = document.getElementById('darkModeToggle');
+                const body = document.body;
+                
+                // Verificar el estado del tema al cargar la página
+                window.onload = function () {
+                    // Si el tema oscuro está almacenado en localStorage, aplicamos el tema oscuro
+                    if (localStorage.getItem('darkMode') === 'enabled') {
+                        body.classList.add('bg-dark', 'text-white');
+                        darkModeToggle.textContent = '☀️'; // Cambiar el icono a modo claro
+                    } else {
+                        body.classList.add('bg-light', 'text-dark');
+                        darkModeToggle.textContent = '🌙'; // Cambiar el icono a modo oscuro
+                    }
+                };
+                
+                // Alternar entre los temas
+                darkModeToggle.addEventListener('click', () => {
+                    if (body.classList.contains('bg-light')) {
+                        body.classList.remove('bg-light', 'text-dark');
+                        body.classList.add('bg-dark', 'text-white');
+                        darkModeToggle.textContent = '☀️'; // Cambiar el icono del botón
+                        // Guardar preferencia en localStorage
+                        localStorage.setItem('darkMode', 'enabled');
+                    } else {
+                        body.classList.remove('bg-dark', 'text-white');
+                        body.classList.add('bg-light', 'text-dark');
+                        darkModeToggle.textContent = '🌙'; // Cambiar el icono del botón
+                        // Guardar preferencia en localStorage
+                        localStorage.setItem('darkMode', 'disabled');
+                    }
+                });
+                
+                    </script>
+        
+            
+    <script>
+        document.getElementById("searchForm").addEventListener("submit", function (event) {
+            event.preventDefault(); // Detiene el envío del formulario
+    
+            const query = document.getElementById("searchInput").value.toLowerCase();
+            const peliculas = document.querySelectorAll("[data-titulo]");
+            let encontrada = false;
+    
+            peliculas.forEach(pelicula => {
+                const titulo = pelicula.getAttribute("data-titulo").toLowerCase();
+                
+                // Verifica si la consulta está incluida en el título
+                if (titulo.includes(query)) {
+                    pelicula.scrollIntoView({ behavior: "smooth", block: "center" }); // Desplaza hacia la película encontrada
+                    pelicula.style.border = "3px solid yellow"; // Resalta la película
+                    encontrada = true;
+    
+                    // Elimina el resaltado después de unos segundos
+                    setTimeout(() => {
+                        pelicula.style.border = "";
+                    }, 3000);
+                }
+            });
+    
+            // Muestra una alerta si no se encuentra ninguna coincidencia
+            if (!encontrada) {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'No se encontró la película',
+                    text: 'Intente con otra búsqueda',
+                    confirmButtonText: 'Aceptar',
+                   
+                });
+            }
+        });
+    </script>
+    
+            
+    
+</body>
+
+</html>
