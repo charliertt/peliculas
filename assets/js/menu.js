@@ -1,14 +1,14 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const menuLinks = document.querySelectorAll('.nav-link');
+    const menuLinks = document.querySelectorAll('.nav-link[data-load="ajax"]');
 
     menuLinks.forEach(link => {
         link.addEventListener('click', (event) => {
-            event.preventDefault(); // Evita la navegación completa
+            event.preventDefault();
 
-            const targetHref = link.getAttribute('href'); // Obtén el href del enlace
+            const targetHref = link.getAttribute('href');
 
             if (targetHref && targetHref !== '#') {
-                loadContent(targetHref); // Carga el contenido
+                loadContent(targetHref);
             }
         });
     });
@@ -31,8 +31,8 @@ $(document).ready(function () {
             timer: 3000,
             timerProgressBar: true,
         }).then(() => {
-            // Redirigir a otra página o realizar alguna acción
-            window.location.href = "single.html";
+            const defaultMovie = (window.moviesData && window.moviesData[0] && window.moviesData[0].id) || 'anora';
+            window.location.href = `single.html?id=${defaultMovie}`;
         });
 
         return false; // Evita que el formulario se envíe
@@ -48,8 +48,8 @@ $(document).ready(function () {
             timer: 3000,
             timerProgressBar: true,
         }).then(() => {
-            // Redirigir a otra página (por ejemplo, al dashboard)
-            window.location.href = "single.html";
+            const defaultMovie = (window.moviesData && window.moviesData[0] && window.moviesData[0].id) || 'anora';
+            window.location.href = `single.html?id=${defaultMovie}`;
         });
 
         return false; // Evita que el formulario se envíe
