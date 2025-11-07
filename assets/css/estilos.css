@@ -1,8 +1,4 @@
-.cartelera-img {
-    height: 500px; /* Altura fija para todas las imágenes */
-    object-fit: cover; /* Asegura que la imagen cubra el área asignada, recortándola si es necesario */
-    width: 100%; /* Asegura que la imagen cubra todo el ancho del contenedor */
-}
+
 .exhibidos{
     height: 460px; /* Altura fija para todas las imágenes */
     object-fit: cover; /* Asegura que la imagen cubra el área asignada, recortándola si es necesario */
@@ -15,6 +11,39 @@ font-weight: 200;
 font-style: normal;
 /* Ajusta según la altura del navbar */
 }
+
+
+.cartelera-img {
+    height: 340px;
+    object-fit: cover;
+    width: 100%;
+    border-radius: 12px;
+    transition: transform .25s ease;
+}
+
+/* Hover suave tipo Netflix */
+.cartelera-img:hover {
+    transform: scale(1.04);
+}
+
+/* En móvil más pequeño aún para que no se vea largo */
+@media (max-width: 768px) {
+    .cartelera-img {
+        height: 230px;
+    }
+   }
+
+#cartelera .col-md-3 {
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+#cartelera .d-flex {
+    padding: 10px;
+    border-radius: 12px;
+    background-color: #1f1f1f; 
+}
+      
 .navbar {
 z-index: 1030; /* Asegura que el navbar quede encima */
 }
@@ -53,4 +82,26 @@ height: 200px;
 width: 100%;
 object-fit: cover;
 cursor: pointer;
+}
+
+@media (min-width: 768px) {
+  .poster-sm { width: 110px !important; }
+}
+@media (min-width: 1200px) {
+  .poster-sm { width: 130px !important; }
+}
+
+
+@media (max-width: 768px) {
+    #cartelera h2 {
+        font-size: 1.3rem !important;
+    }
+
+    #cartelera .fs-4 {
+        font-size: 1rem !important;
+    }
+
+    #cartelera .fs-6 {
+        font-size: .78rem !important;
+    }
 }

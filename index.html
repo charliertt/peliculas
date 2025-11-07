@@ -29,7 +29,7 @@
 
 
 
-<body class="bg-light text-dark transition bg-dark text-white">
+<body class="transition">
 
     <nav class="container menu navbar fixed-top navbar-expand-lg p-1 mb-4">
         <div class="container-fluid">
@@ -714,34 +714,32 @@
                 const darkModeToggle = document.getElementById('darkModeToggle');
                 const body = document.body;
                 
-                // Verificar el estado del tema al cargar la página
-                window.onload = function () {
-                    // Si el tema oscuro está almacenado en localStorage, aplicamos el tema oscuro
-                    if (localStorage.getItem('darkMode') === 'enabled') {
-                        body.classList.add('bg-dark', 'text-white');
-                        darkModeToggle.textContent = '☀️'; // Cambiar el icono a modo claro
-                    } else {
-                        body.classList.add('bg-light', 'text-dark');
-                        darkModeToggle.textContent = '🌙'; // Cambiar el icono a modo oscuro
-                    }
-                };
-                
-                // Alternar entre los temas
-                darkModeToggle.addEventListener('click', () => {
-                    if (body.classList.contains('bg-light')) {
-                        body.classList.remove('bg-light', 'text-dark');
-                        body.classList.add('bg-dark', 'text-white');
-                        darkModeToggle.textContent = '☀️'; // Cambiar el icono del botón
-                        // Guardar preferencia en localStorage
-                        localStorage.setItem('darkMode', 'enabled');
-                    } else {
-                        body.classList.remove('bg-dark', 'text-white');
-                        body.classList.add('bg-light', 'text-dark');
-                        darkModeToggle.textContent = '🌙'; // Cambiar el icono del botón
-                        // Guardar preferencia en localStorage
-                        localStorage.setItem('darkMode', 'disabled');
-                    }
-                });
+               window.onload = function () {
+    body.classList.remove('bg-dark', 'text-white', 'bg-light', 'text-dark');
+
+    if (localStorage.getItem('darkMode') === 'enabled') {
+        body.classList.add('bg-dark', 'text-white');
+        darkModeToggle.textContent = '☀️';
+    } else {
+        body.classList.add('bg-light', 'text-dark');
+        darkModeToggle.textContent = '🌙';
+    }
+};
+
+// Alternar entre modos
+darkModeToggle.addEventListener('click', () => {
+    body.classList.remove('bg-dark', 'text-white', 'bg-light', 'text-dark');
+
+    if (localStorage.getItem('darkMode') !== 'enabled') {
+        body.classList.add('bg-dark', 'text-white');
+        darkModeToggle.textContent = '☀️';
+        localStorage.setItem('darkMode', 'enabled');
+    } else {
+        body.classList.add('bg-light', 'text-dark');
+        darkModeToggle.textContent = '🌙';
+        localStorage.setItem('darkMode', 'disabled');
+    }
+});
                 
                     </script>
         
