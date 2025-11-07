@@ -1,0 +1,618 @@
+(function () {
+  const movies = [
+    {
+      id: 'anora',
+      title: 'Anora',
+      originalTitle: 'Anora',
+      tagline: 'Una bailarina en Brooklyn descubre que una noche puede cambiarlo todo.',
+      synopsis:
+        'Anora, una bailarina con sueños más grandes que la vida nocturna que la rodea, recibe una oferta inesperada que la obliga a elegir entre la lealtad y su libertad. Entre humor ácido y empatía brutal, la película sigue la velocidad frenética de la ciudad que nunca duerme.',
+      releaseDate: '2024-10-12',
+      runtime: 118,
+      classification: 'R',
+      genres: ['Drama', 'Romance'],
+      director: 'Sean Baker',
+      cast: ['Mikey Madison', 'Yuri Borisov', 'Mark Eydelshteyn'],
+      poster: 'assets/img/anora.jpg',
+      backdrop: 'assets/img/anora.jpg',
+      trailer: 'https://www.youtube.com/watch?v=jbp7SKA_Bqo',
+      score: 4.7,
+      keywords: ['Sueño americano', 'Humor negro', 'Nueva York'],
+      highlights: [
+        {
+          title: 'Premios',
+          description: 'Ganadora de la Palma de Oro 2024 en el Festival de Cannes.',
+        },
+        {
+          title: 'Estilo',
+          description: 'Narrativa frenética filmada en locaciones reales de Brooklyn.',
+        },
+        {
+          title: 'Música',
+          description: 'Banda sonora que mezcla trap y synthwave para reforzar el contraste entre glamour y realidad.',
+        },
+      ],
+      facts: {
+        País: 'Estados Unidos',
+        Distribuidora: 'A24',
+        Idioma: 'Inglés',
+      },
+    },
+    {
+      id: 'smile-2',
+      title: 'Smile 2',
+      originalTitle: 'Smile 2',
+      tagline: 'La sonrisa vuelve más afilada y personal.',
+      synopsis:
+        'Kat, una estrella del pop en ascenso, se ve perseguida por visiones inquietantes que amenazan su vida y su carrera. El fenómeno viral que azotó a millones regresa con más intensidad, obligándola a enfrentar traumas que creía enterrados.',
+      releaseDate: '2024-10-18',
+      runtime: 112,
+      classification: 'PG-13',
+      genres: ['Terror', 'Suspenso'],
+      director: 'Parker Finn',
+      cast: ['Naomi Scott', 'Rosemarie DeWitt', 'Kyle Gallner'],
+      poster: 'assets/img/smile_background.jpg',
+      backdrop: 'assets/img/smile_background.jpg',
+      trailer: 'https://www.youtube.com/watch?v=3L4sSu-K8wU',
+      score: 4.2,
+      keywords: ['Terror psicológico', 'Fama', 'Redes sociales'],
+      highlights: [
+        {
+          title: 'Experiencia inmersiva',
+          description: 'Utiliza un diseño de sonido binaural que potencia cada susurro y respiración.',
+        },
+        {
+          title: 'Continuidad',
+          description: 'Conecta directamente con el final alternativo de la primera entrega.',
+        },
+        {
+          title: 'Iconografía',
+          description: 'La sonrisa distorsionada se convierte en símbolo de la cultura pop.',
+        },
+      ],
+      facts: {
+        País: 'Estados Unidos',
+        Distribuidora: 'Paramount Pictures',
+        Idioma: 'Inglés',
+      },
+    },
+    {
+      id: 'cowboy-carter',
+      title: 'Cowboy Carter',
+      originalTitle: 'Cowboy Carter',
+      tagline: 'Cuando el country se encuentra con el soul, el Oeste vibra de nuevo.',
+      synopsis:
+        'Un viaje musical que mezcla tradición y rebeldía. Cowboy Carter reimagina el western a través de la música contemporánea, siguiendo a una artista que rompe barreras mientras defiende su herencia.',
+      releaseDate: '2024-08-09',
+      runtime: 124,
+      classification: 'PG-13',
+      genres: ['Drama', 'Música'],
+      director: 'Melina Matsoukas',
+      cast: ['Beyoncé', 'Rhiannon Giddens', 'Willie Nelson'],
+      poster: 'assets/img/comboy.jpg',
+      backdrop: 'assets/img/comboy.jpg',
+      trailer: 'https://www.youtube.com/watch?v=1YZzDr0dGzk',
+      score: 4.5,
+      keywords: ['Western moderno', 'Identidad', 'Fusión musical'],
+      highlights: [
+        {
+          title: 'Dirección artística',
+          description: 'Diseño de producción inspirado en la iconografía afroamericana del oeste.',
+        },
+        {
+          title: 'Colaboraciones',
+          description: 'Aparecen cameos de leyendas como Dolly Parton y Willie Nelson.',
+        },
+        {
+          title: 'Fotografía',
+          description: 'Paleta cálida y texturas en 16mm para reforzar la nostalgia.',
+        },
+      ],
+      facts: {
+        País: 'Estados Unidos',
+        Distribuidora: 'Parkwood Entertainment',
+        Idioma: 'Inglés',
+      },
+    },
+    {
+      id: 'national-anthem',
+      title: 'National Anthem',
+      originalTitle: 'National Anthem',
+      tagline: 'En Nuevo México, el amor encuentra un nuevo territorio.',
+      synopsis:
+        'Dylan, un joven que trabaja en un rancho, se encuentra con una comunidad queer que redefine su visión del hogar y de la masculinidad. Una carta de amor al paisaje americano y a quienes lo habitan al margen.',
+      releaseDate: '2024-07-12',
+      runtime: 97,
+      classification: 'PG-13',
+      genres: ['Drama', 'Romance'],
+      director: 'Luke Gilford',
+      cast: ['Charlie Plummer', 'Eve Lindley', 'Robyn Lively'],
+      poster: 'assets/img/national.jpg',
+      backdrop: 'assets/img/national.jpg',
+      trailer: 'https://www.youtube.com/watch?v=gqY89J3ueoQ',
+      score: 4.3,
+      keywords: ['Identidad queer', 'Rodeo', 'Coming-of-age'],
+      highlights: [
+        {
+          title: 'Representación',
+          description: 'Basada en el fotolibro del director que retrata la escena queer del rodeo.',
+        },
+        {
+          title: 'Banda sonora',
+          description: 'Combina folk clásico con sintetizadores atmosféricos.',
+        },
+        {
+          title: 'Debut',
+          description: 'Ópera prima de Luke Gilford en largometraje.',
+        },
+      ],
+      facts: {
+        País: 'Estados Unidos',
+        Distribuidora: 'Bleeker Street',
+        Idioma: 'Inglés',
+      },
+    },
+    {
+      id: 'look-back',
+      title: 'Look Back',
+      originalTitle: 'ルックバック',
+      tagline: 'Dos amigas, un manga y una amistad a prueba del tiempo.',
+      synopsis:
+        'Fujino y Kyomoto canalizan su pasión por el manga en una obra colaborativa. Cuando un suceso inesperado amenaza con separarlas, el arte se convierte en su manera de sanar.',
+      releaseDate: '2024-09-28',
+      runtime: 108,
+      classification: 'PG',
+      genres: ['Animación', 'Drama'],
+      director: 'Kiyotaka Oshiyama',
+      cast: ['Yuumi Kawai', 'Mariya Ise', 'Ikumi Hasegawa'],
+      poster: 'assets/img/look.jpg',
+      backdrop: 'assets/img/look.jpg',
+      trailer: 'https://www.youtube.com/watch?v=_SQiA9H9n1E',
+      score: 4.8,
+      keywords: ['Amistad', 'Arte', 'Superación'],
+      highlights: [
+        {
+          title: 'Adaptación',
+          description: 'Basada en el aclamado one-shot de Tatsuki Fujimoto.',
+        },
+        {
+          title: 'Animación',
+          description: 'Animación tradicional con fondos pintados a mano.',
+        },
+        {
+          title: 'Emotividad',
+          description: 'Una carta de amor al proceso creativo.',
+        },
+      ],
+      facts: {
+        País: 'Japón',
+        Distribuidora: 'Avex Pictures',
+        Idioma: 'Japonés',
+      },
+    },
+    {
+      id: 'i-am-here',
+      title: 'I Am Here',
+      originalTitle: 'I Am Here',
+      tagline: 'Sobrevivir es recordar quiénes somos.',
+      synopsis:
+        'Una paramédica queda atrapada en una ciudad sitiada y debe guiar a un grupo de civiles fuera del conflicto. Cada decisión está teñida por sus memorias y los vínculos que desea preservar.',
+      releaseDate: '2024-05-24',
+      runtime: 105,
+      classification: 'PG-13',
+      genres: ['Drama', 'Suspenso'],
+      director: 'Haifaa Al-Mansour',
+      cast: ['Ahd', 'Yasmine Al-Bustami', 'Oded Fehr'],
+      poster: 'assets/img/iamhere.jpg',
+      backdrop: 'assets/img/iamhere.jpg',
+      trailer: 'https://www.youtube.com/watch?v=sl4k5e3t8zk',
+      score: 4.1,
+      keywords: ['Resiliencia', 'Conflicto', 'Recuerdos'],
+      highlights: [
+        {
+          title: 'Protagonista',
+          description: 'Una heroína compleja que equilibra vulnerabilidad y liderazgo.',
+        },
+        {
+          title: 'Locaciones',
+          description: 'Rodada en ciudades del Medio Oriente con apoyo de equipos locales.',
+        },
+        {
+          title: 'Mensaje',
+          description: 'Reflexiona sobre el costo humano de la guerra contemporánea.',
+        },
+      ],
+      facts: {
+        País: 'Arabia Saudita',
+        Distribuidora: 'Netflix',
+        Idioma: 'Árabe / Inglés',
+      },
+    },
+    {
+      id: 'the-heretic',
+      title: 'The Heretic',
+      originalTitle: 'The Heretic',
+      tagline: 'La fe se quiebra en la noche más larga.',
+      synopsis:
+        'Una teóloga desacreditada se enfrenta a un exorcismo que desafía toda lógica. Para salvar a la familia involucrada, deberá decidir hasta dónde llegar por la verdad.',
+      releaseDate: '2024-10-31',
+      runtime: 119,
+      classification: 'R',
+      genres: ['Terror', 'Misterio'],
+      director: 'Scott Derrickson',
+      cast: ['Hugh Grant', 'Sophie Thatcher', 'Chloe East'],
+      poster: 'assets/img/heretic.jpg',
+      backdrop: 'assets/img/heretic.jpg',
+      trailer: 'https://www.youtube.com/watch?v=2eHg7VBQ-hg',
+      score: 4.4,
+      keywords: ['Exorcismo', 'Fe', 'Intriga'],
+      highlights: [
+        {
+          title: 'Guion',
+          description: 'Coescrito por C. Robert Cargill, dúo responsable de Sinister.',
+        },
+        {
+          title: 'Atmosfera',
+          description: 'Uso intensivo de iluminación práctica y humo para crear claustrofobia.',
+        },
+        {
+          title: 'Interpretación',
+          description: 'Hugh Grant en uno de los papeles más siniestros de su carrera.',
+        },
+      ],
+      facts: {
+        País: 'Estados Unidos',
+        Distribuidora: 'Universal Pictures',
+        Idioma: 'Inglés',
+      },
+    },
+    {
+      id: 'the-deep',
+      title: 'The Deep',
+      originalTitle: 'The Deep',
+      tagline: 'En las profundidades, los secretos pesan más.',
+      synopsis:
+        'Una expedición científica desciende a un abismo oceánico recién descubierto. Lo que encuentran cambia para siempre nuestra comprensión de la vida en la Tierra.',
+      releaseDate: '2024-11-08',
+      runtime: 122,
+      classification: 'PG-13',
+      genres: ['Ciencia ficción', 'Aventura'],
+      director: 'Gareth Edwards',
+      cast: ['Ariana DeBose', 'John Boyega', 'Ken Watanabe'],
+      poster: 'assets/img/deep.jpeg',
+      backdrop: 'assets/img/deep.jpeg',
+      trailer: 'https://www.youtube.com/watch?v=6_1j4kCiH0Q',
+      score: 4.6,
+      keywords: ['Exploración', 'Océano', 'Thriller'],
+      highlights: [
+        {
+          title: 'Efectos visuales',
+          description: 'Combinación de modelos prácticos y CGI renderizado con IA.',
+        },
+        {
+          title: 'Narrativa',
+          description: 'Inspirada en relatos de Arthur C. Clarke.',
+        },
+        {
+          title: 'Banda sonora',
+          description: 'Composición atmosférica de Ryuichi Sakamoto en su trabajo póstumo.',
+        },
+      ],
+      facts: {
+        País: 'Reino Unido',
+        Distribuidora: 'Warner Bros.',
+        Idioma: 'Inglés',
+      },
+    },
+    {
+      id: 'poison',
+      title: 'Poison',
+      originalTitle: 'Poison',
+      tagline: 'Un héroe caído lucha por salvarse de sí mismo.',
+      synopsis:
+        'Tras años de ser el protector de su ciudad, Kevin Frost pierde el control sobre el simbionte que le otorgó poder. Un viaje introspectivo que mezcla acción espectacular con dilemas morales.',
+      releaseDate: '2024-10-15',
+      runtime: 150,
+      classification: 'PG',
+      genres: ['Animación', 'Aventura', 'Ciencia ficción'],
+      director: 'Bryan Andrews',
+      cast: ['Steven Yeun', 'Simu Liu', 'Hailee Steinfeld'],
+      poster: 'assets/img/veneno.jpg',
+      backdrop: 'assets/img/veneno.jpg',
+      trailer: 'https://www.youtube.com/watch?v=uz0xMxGIOwI',
+      score: 4.0,
+      keywords: ['Superhéroes', 'Redención', 'Multiverso'],
+      highlights: [
+        {
+          title: 'Animación',
+          description: 'Inspirada en cómics de los 90 con texturas pintadas a mano.',
+        },
+        {
+          title: 'Villano',
+          description: 'Una versión oscura de un héroe amado obliga al protagonista a reinventarse.',
+        },
+        {
+          title: 'Humor',
+          description: 'Equilibrio entre drama familiar y comedia absurda.',
+        },
+      ],
+      facts: {
+        País: 'Estados Unidos',
+        Distribuidora: 'Sony Pictures Animation',
+        Idioma: 'Inglés',
+      },
+    },
+    {
+      id: 'mario-puzo-godfather',
+      title: "Mario Puzo's The Godfather",
+      originalTitle: "Mario Puzo's The Godfather",
+      tagline: 'Una mirada íntima a la saga que redefinió el cine de mafias.',
+      synopsis:
+        'Documental que celebra el legado de El Padrino y examina cómo la novela de Mario Puzo y la visión de Francis Ford Coppola se entrelazaron para crear un fenómeno cultural.',
+      releaseDate: '2024-12-18',
+      runtime: 150,
+      classification: 'PG',
+      genres: ['Documental', 'Historia'],
+      director: 'Kim Snyder',
+      cast: ['Al Pacino', 'Talia Shire', 'Sofia Coppola'],
+      poster: 'assets/img/mario.jpg',
+      backdrop: 'assets/img/mario.jpg',
+      trailer: 'https://www.youtube.com/watch?v=sY1S34973zA',
+      score: 4.5,
+      keywords: ['Cine clásico', 'Familia Corleone', 'Entrevistas'],
+      highlights: [
+        {
+          title: 'Material inédito',
+          description: 'Incluye cintas de audiciones y storyboards restaurados.',
+        },
+        {
+          title: 'Entrevistas',
+          description: 'Participación de miembros clave del reparto original.',
+        },
+        {
+          title: 'Contexto',
+          description: 'Analiza la influencia sociopolítica de la saga en los años 70.',
+        },
+      ],
+      facts: {
+        País: 'Estados Unidos',
+        Distribuidora: 'Paramount+',
+        Idioma: 'Inglés',
+      },
+    },
+    {
+      id: 'jeff-buckley-live',
+      title: 'Jeff Buckley - Live in Chicago',
+      originalTitle: 'Jeff Buckley - Live in Chicago',
+      tagline: 'Un concierto legendario revive en alta definición.',
+      synopsis:
+        'Registro remasterizado del icónico concierto de Jeff Buckley en 1995. Voces cristalinas, guitarras atmosféricas y la intimidad que definió su breve carrera.',
+      releaseDate: '2024-11-18',
+      runtime: 120,
+      classification: 'PG-13',
+      genres: ['Documental', 'Música'],
+      director: 'Luca Guadagnino',
+      cast: ['Jeff Buckley', 'Michael Tighe', 'Mick Grøndahl'],
+      poster: 'assets/img/jeff.jpg',
+      backdrop: 'assets/img/jeff.jpg',
+      trailer: 'https://www.youtube.com/watch?v=A3adFWKE9JE',
+      score: 4.9,
+      keywords: ['Concierto', 'Remasterización', 'Leyenda'],
+      highlights: [
+        {
+          title: 'Audio 4K Atmos',
+          description: 'Remasterización supervisada por el ingeniero original del show.',
+        },
+        {
+          title: 'Entrevistas exclusivas',
+          description: 'Incluye testimonios de la banda y familiares de Buckley.',
+        },
+        {
+          title: 'Extras',
+          description: 'Guitarras, partituras y memorabilia digitalizada.',
+        },
+      ],
+      facts: {
+        País: 'Estados Unidos',
+        Distribuidora: 'Sony Legacy Recordings',
+        Idioma: 'Inglés',
+      },
+    },
+    {
+      id: 'sunset-boulevard',
+      title: 'Sunset Boulevard',
+      originalTitle: 'Sunset Boulevard',
+      tagline: 'Hollywood nunca olvida… ni perdona.',
+      synopsis:
+        'Restauración en 4K del clásico noir de Billy Wilder. Acompaña a Norma Desmond en su descenso a la obsesión mientras un guionista en decadencia narra la tragedia desde dentro.',
+      releaseDate: '2024-12-15',
+      runtime: 135,
+      classification: 'R',
+      genres: ['Drama', 'Noir'],
+      director: 'Billy Wilder',
+      cast: ['Gloria Swanson', 'William Holden', 'Nancy Olson'],
+      poster: 'assets/img/sunset.jpg',
+      backdrop: 'assets/img/sunset.jpg',
+      trailer: 'https://www.youtube.com/watch?v=DD7ltps2w1Q',
+      score: 5.0,
+      keywords: ['Clásico', 'Restauración', 'Hollywood'],
+      highlights: [
+        {
+          title: 'Restauración',
+          description: 'Proceso de limpieza cuadro a cuadro a cargo de la Film Foundation.',
+        },
+        {
+          title: 'Nueva introducción',
+          description: 'Presentación de Martin Scorsese sobre la relevancia del filme.',
+        },
+        {
+          title: 'Material adicional',
+          description: 'Incluye escenas eliminadas con comentario del director.',
+        },
+      ],
+      facts: {
+        País: 'Estados Unidos',
+        Distribuidora: 'Paramount Pictures',
+        Idioma: 'Inglés',
+      },
+    },
+    {
+      id: 'the-human-condition',
+      title: 'The Human Condition',
+      originalTitle: '人間の條件',
+      tagline: 'La trilogía épica llega remasterizada en una experiencia única.',
+      synopsis:
+        'Reestreno que reúne las tres partes de la epopeya antibélica de Masaki Kobayashi. El idealista Kaji enfrenta el peso del deber, la guerra y la moral en una travesía devastadora.',
+      releaseDate: '2024-12-15',
+      runtime: 625,
+      classification: 'R',
+      genres: ['Drama', 'Bélica'],
+      director: 'Masaki Kobayashi',
+      cast: ['Tatsuya Nakadai', 'Michiyo Aratama', 'So Yamamura'],
+      poster: 'assets/img/human.jpg',
+      backdrop: 'assets/img/human.jpg',
+      trailer: 'https://www.youtube.com/watch?v=VJQ2f_QWv7U',
+      score: 4.9,
+      keywords: ['Anti-guerra', 'Épica', 'Clásico japonés'],
+      highlights: [
+        {
+          title: 'Nuevo montaje',
+          description: 'Versión supervisada por la familia de Kobayashi con transiciones inéditas.',
+        },
+        {
+          title: 'Remasterización',
+          description: 'Restauración a 8K y audio mono mejorado.',
+        },
+        {
+          title: 'Contexto histórico',
+          description: 'Incluye entrevistas con historiadores y veteranos.',
+        },
+      ],
+      facts: {
+        País: 'Japón',
+        Distribuidora: 'Toho',
+        Idioma: 'Japonés',
+      },
+    },
+    {
+      id: 'spiderverse',
+      title: 'Spider-Man: Into the Spider-Verse',
+      originalTitle: 'Spider-Man: Into the Spider-Verse',
+      tagline: 'Miles Morales regresa con un multiverso aún más grande.',
+      synopsis:
+        'Miles debe aprender a colaborar con una nueva generación de héroes arácnidos cuando una amenaza interdimensional pone en riesgo a todos los universos. Innovación visual y narrativa al servicio de la emoción.',
+      releaseDate: '2024-12-20',
+      runtime: 140,
+      classification: 'PG',
+      genres: ['Aventura', 'Fantasía'],
+      director: 'Joaquim Dos Santos',
+      cast: ['Shameik Moore', 'Hailee Steinfeld', 'Oscar Isaac'],
+      poster: 'assets/img/spiderverse.jpg',
+      backdrop: 'assets/img/spiderverse.jpg',
+      trailer: 'https://www.youtube.com/watch?v=g4Hbz2jLxvQ',
+      score: 4.8,
+      keywords: ['Animación híbrida', 'Multiverso', 'Familia'],
+      highlights: [
+        {
+          title: 'Técnica',
+          description: 'Combina 2D, 3D y animación generada por IA.',
+        },
+        {
+          title: 'Personajes',
+          description: 'Presenta nuevas variantes de Spider-Man de todo el multiverso.',
+        },
+        {
+          title: 'Música',
+          description: 'Banda sonora curada por Metro Boomin.',
+        },
+      ],
+      facts: {
+        País: 'Estados Unidos',
+        Distribuidora: 'Sony Pictures',
+        Idioma: 'Inglés',
+      },
+    },
+    {
+      id: 'big-steppers-tour',
+      title: 'Kendrick Lamar Live: The Big Steppers Tour',
+      originalTitle: 'Kendrick Lamar Live: The Big Steppers Tour',
+      tagline: 'El álbum Pulitzer cobra vida en un escenario inmersivo.',
+      synopsis:
+        'Documental-concierto que sigue el tour mundial de Kendrick Lamar. Coreografías precisas, visuales imponentes y confesiones íntimas entre bambalinas.',
+      releaseDate: '2024-12-25',
+      runtime: 130,
+      classification: 'PG-13',
+      genres: ['Documental', 'Música'],
+      director: 'Dave Free',
+      cast: ['Kendrick Lamar', 'Baby Keem', 'Whitney Alford'],
+      poster: 'assets/img/big steppers.jpg',
+      backdrop: 'assets/img/big steppers.jpg',
+      trailer: 'https://www.youtube.com/watch?v=glaG64Ao7sM',
+      score: 4.9,
+      keywords: ['Hip hop', 'Performance', 'Confesional'],
+      highlights: [
+        {
+          title: 'Visuales inmersivos',
+          description: 'Pantallas volumétricas y realidad aumentada en vivo.',
+        },
+        {
+          title: 'Narrativa personal',
+          description: 'Incluye poemas escritos por Lamar para la gira.',
+        },
+        {
+          title: 'Colaboraciones',
+          description: 'Presenta apariciones especiales de artistas invitados en cada ciudad.',
+        },
+      ],
+      facts: {
+        País: 'Estados Unidos',
+        Distribuidora: 'pgLang',
+        Idioma: 'Inglés',
+      },
+    },
+    {
+      id: 'mishima',
+      title: 'Mishima: A Life in Four Chapters',
+      originalTitle: 'Mishima: A Life in Four Chapters',
+      tagline: 'Arte, memoria y mito en una biografía irrepetible.',
+      synopsis:
+        'Paul Schrader reconstruye la vida y obra de Yukio Mishima combinando biografía y teatralidad. Un viaje estilizado que explora el choque entre tradición y modernidad en Japón.',
+      releaseDate: '2024-10-15',
+      runtime: 120,
+      classification: 'PG-13',
+      genres: ['Biografía', 'Drama', 'Música'],
+      director: 'Paul Schrader',
+      cast: ['Ken Ogata', 'Masayuki Shionoya', 'Reiko Aylesworth'],
+      poster: 'assets/img/mishima.jpg',
+      backdrop: 'assets/img/mishima.jpg',
+      trailer: 'https://www.youtube.com/watch?v=DS6dqOZwsWI',
+      score: 4.6,
+      keywords: ['Biografía', 'Vanguardia', 'Identidad'],
+      highlights: [
+        {
+          title: 'Diseño',
+          description: 'Sets teatrales que dividen la vida de Mishima en cuatro capítulos.',
+        },
+        {
+          title: 'Música',
+          description: 'Partitura de Philip Glass remasterizada.',
+        },
+        {
+          title: 'Narrativa',
+          description: 'Montaje no lineal que fusiona realidad y ficción.',
+        },
+      ],
+      facts: {
+        País: 'Estados Unidos / Japón',
+        Distribuidora: 'Toho / Warner Bros.',
+        Idioma: 'Japonés / Inglés',
+      },
+    },
+  ];
+
+  window.moviesData = movies;
+  window.moviesById = movies.reduce((acc, movie) => {
+    acc[movie.id] = movie;
+    return acc;
+  }, {});
+})();

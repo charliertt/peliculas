@@ -31,7 +31,7 @@
 
 <body class="transition">
 
-    <nav class="container menu navbar fixed-top navbar-expand-lg p-1 mb-4">
+    <nav class="container menu navbar navbar-dark fixed-top navbar-expand-lg p-1 mb-4">
         <div class="container-fluid">
             <a class="navbar-brand fw-bold fs-4 text-white" href="index.html">ARAIC <span class="text-sm"></span></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -39,9 +39,18 @@
             </button>
             <div class="collapse navbar-collapse mx-auto" id="navbarNav">
                 <ul class="navbar-nav mx-auto d-flex justify-content-center text-center">
-                  
-
-                 
+                    <li class="nav-item">
+                        <a class="nav-link text-white fw-semibold" href="#cartelera">Cartelera</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white fw-semibold" href="somos.html">Nosotros</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle text-white fw-semibold" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Películas
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-dark" id="movieMenu"></ul>
+                    </li>
                 </ul>
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
@@ -500,6 +509,7 @@
                                     </div>
                                 </div>
                             </div>
+                            <a href="single.html?id=mario-puzo-godfather" class="stretched-link" aria-label="Abrir la ficha de Mario Puzo's The Godfather"></a>
                         </div>
                     </div>
                     <div class="col" data-titulo="Jeff Buckley - Live in Chicagoe" data-genero="Acción, Ciencia Ficción, Terror">
@@ -656,89 +666,85 @@
             
                
               
-                <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-                <script src="assets/js/menu.js"></script>
-                <script src="https://cdnjs.cloudflare.com/ajax/libs/parsley.js/2.9.2/parsley.min.js"></script>
-                 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-                <script src="https://cdn.datatables.net/2.1.8/js/dataTables.js"></script>
-                <script src="https://cdn.datatables.net/2.1.8/js/dataTables.bootstrap5.js"></script>
-                <script>
-                        $(document).ready(function() {
-                            $('#example').DataTable();
-                        });
-                    </script>
-               
-                <script>
-                // Referencia al botón y al body
-                const darkModeToggle = document.getElementById('darkModeToggle');
-                const body = document.body;
-                
-               window.onload = function () {
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="assets/js/movies-data.js"></script>
+<script src="assets/js/movie-navigation.js"></script>
+<script src="assets/js/menu.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/parsley.js/2.9.2/parsley.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<script src="https://cdn.datatables.net/2.1.8/js/dataTables.js"></script>
+<script src="https://cdn.datatables.net/2.1.8/js/dataTables.bootstrap5.js"></script>
+<script>
+  $(document).ready(function() {
+    if ($('#example').length) {
+      $('#example').DataTable();
+    }
+  });
+</script>
+
+<script>
+  const darkModeToggle = document.getElementById('darkModeToggle');
+  const body = document.body;
+
+  window.onload = function () {
     body.classList.remove('bg-dark', 'text-white', 'bg-light', 'text-dark');
 
     if (localStorage.getItem('darkMode') === 'enabled') {
-        body.classList.add('bg-dark', 'text-white');
-        darkModeToggle.textContent = '☀️';
+      body.classList.add('bg-dark', 'text-white');
+      darkModeToggle.textContent = '☀️';
     } else {
-        body.classList.add('bg-light', 'text-dark');
-        darkModeToggle.textContent = '🌙';
+      body.classList.add('bg-light', 'text-dark');
+      darkModeToggle.textContent = '🌙';
     }
-};
+  };
 
-// Alternar entre modos
-darkModeToggle.addEventListener('click', () => {
+  darkModeToggle.addEventListener('click', () => {
     body.classList.remove('bg-dark', 'text-white', 'bg-light', 'text-dark');
 
     if (localStorage.getItem('darkMode') !== 'enabled') {
-        body.classList.add('bg-dark', 'text-white');
-        darkModeToggle.textContent = '☀️';
-        localStorage.setItem('darkMode', 'enabled');
+      body.classList.add('bg-dark', 'text-white');
+      darkModeToggle.textContent = '☀️';
+      localStorage.setItem('darkMode', 'enabled');
     } else {
-        body.classList.add('bg-light', 'text-dark');
-        darkModeToggle.textContent = '🌙';
-        localStorage.setItem('darkMode', 'disabled');
+      body.classList.add('bg-light', 'text-dark');
+      darkModeToggle.textContent = '🌙';
+      localStorage.setItem('darkMode', 'disabled');
     }
-});
-                
-                    </script>
-        
-            
-    <script>
-        document.getElementById("searchForm").addEventListener("submit", function (event) {
-            event.preventDefault(); // Detiene el envío del formulario
-    
-            const query = document.getElementById("searchInput").value.toLowerCase();
-            const peliculas = document.querySelectorAll("[data-titulo]");
-            let encontrada = false;
-    
-            peliculas.forEach(pelicula => {
-                const titulo = pelicula.getAttribute("data-titulo").toLowerCase();
-                
-                // Verifica si la consulta está incluida en el título
-                if (titulo.includes(query)) {
-                    pelicula.scrollIntoView({ behavior: "smooth", block: "center" }); // Desplaza hacia la película encontrada
-                    pelicula.style.border = "3px solid yellow"; // Resalta la película
-                    encontrada = true;
-    
-                    // Elimina el resaltado después de unos segundos
-                    setTimeout(() => {
-                        pelicula.style.border = "";
-                    }, 3000);
-                }
-            });
-    
-            // Muestra una alerta si no se encuentra ninguna coincidencia
-            if (!encontrada) {
-                Swal.fire({
-                    icon: 'error',
-                    title: 'No se encontró la película',
-                    text: 'Intente con otra búsqueda',
-                    confirmButtonText: 'Aceptar',
-                   
-                });
-            }
-        });
-    </script>
+  });
+</script>
+
+<script>
+  document.getElementById('searchForm').addEventListener('submit', function (event) {
+    event.preventDefault();
+
+    const query = document.getElementById('searchInput').value.toLowerCase();
+    const peliculas = document.querySelectorAll('[data-titulo]');
+    let encontrada = false;
+
+    peliculas.forEach(pelicula => {
+      const titulo = pelicula.getAttribute('data-titulo').toLowerCase();
+
+      if (titulo.includes(query)) {
+        pelicula.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        pelicula.style.border = '3px solid yellow';
+        encontrada = true;
+
+        setTimeout(() => {
+          pelicula.style.border = '';
+        }, 3000);
+      }
+    });
+
+    if (!encontrada) {
+      Swal.fire({
+        icon: 'error',
+        title: 'No se encontró la película',
+        text: 'Intente con otra búsqueda',
+        confirmButtonText: 'Aceptar'
+      });
+    }
+  });
+</script>
     
             
     
