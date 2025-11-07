@@ -33,6 +33,16 @@ font-style: normal;
     }
    }
 
+@media (max-width: 576px) {
+    .exhibidos {
+        height: 260px;
+    }
+
+    .cartelera-img {
+        height: auto;
+    }
+}
+
 #cartelera .col-md-3 {
     padding-left: 8px;
     padding-right: 8px;
